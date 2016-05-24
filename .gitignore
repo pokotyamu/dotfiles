@@ -7,3 +7,5 @@ ac-comphist.dat
 */elisp/*
 */.cask/*
 recentf
+
+/.gitconfig
