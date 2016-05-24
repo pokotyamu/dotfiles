@@ -1,0 +1,46 @@
+# archive
+*.zip
+*.lzh
+*.tar.gz
+*.tgz
+*.bz2
+*.dmg
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+# version control system
+.git/
+.hg/
+.svn/
+
+# backup,log
+*~
+~*
+*.swp
+.swp.*
+*.tmp
+*.bak
+*.old
+*.log
+.cache/
+*.autosave
+
+# emacs
+\#*\#
+auto-save-list
+recentf
+/elpa/
+.cask/
+*.dat
+
+# environment
+.env
+/.env
+.envrc
+/.envrc
