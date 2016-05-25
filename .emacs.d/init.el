@@ -28,3 +28,7 @@
   (spacemacs/setup-startup-hook)
   (require 'server)
   (unless (server-running-p) (server-start)))
+
+
+;;rubyのマジックコメント対策
+(setq ruby-insert-encoding-magic-comment nil)
