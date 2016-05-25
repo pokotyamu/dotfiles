@@ -18,6 +18,7 @@
 .git/
 .hg/
 .svn/
+.gitignore
 
 # backup,log
 *~
@@ -38,6 +39,7 @@ recentf
 /elpa/
 .cask/
 *.dat
+.#*
 
 # environment
 .env
