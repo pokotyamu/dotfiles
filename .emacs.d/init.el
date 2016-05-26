@@ -32,3 +32,6 @@
 
 ;;rubyのマジックコメント対策
 (setq ruby-insert-encoding-magic-comment nil)
+
+;;行数
+(global-linum-mode t)
