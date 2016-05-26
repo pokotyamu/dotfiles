@@ -92,6 +92,7 @@ alias gaa='git add -A'
 alias gau='git add -u'
 alias gl='git log --graph --oneline --decorate --date=short'
 
+
 export PATH="/usr/local/bin:$PATH"
 export ARCHFLAGS="-arch x86_64"
 export PGDATA="/usr/local/var/postgres"
@@ -104,7 +105,7 @@ fi
 #direnv
 eval "$(direnv hook zsh)"
 
-
+function git(){hub "$@"}
 
 #peco
 function peco-select-history() {
