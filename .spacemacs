@@ -14,9 +14,11 @@ values."
      auto-completion
      emacs-lisp
      git
+     github
      markdown
      ruby
      ruby-on-rails
+     syntax-checking
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
