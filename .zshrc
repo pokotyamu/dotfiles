@@ -97,10 +97,6 @@ export PATH="/usr/local/bin:$PATH"
 export ARCHFLAGS="-arch x86_64"
 export PGDATA="/usr/local/var/postgres"
 
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-#plugins=(git ruby)
 
 #direnv
 eval "$(direnv hook zsh)"
