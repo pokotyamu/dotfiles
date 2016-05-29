@@ -46,3 +46,7 @@ recentf
 /.env
 .envrc
 /.envrc
+
+# ruby
+/.bundle
+/vendor/bundle
