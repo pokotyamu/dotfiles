@@ -19,6 +19,7 @@ values."
      ruby
      ruby-on-rails
      syntax-checking
+     yaml-mode
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
@@ -48,11 +49,11 @@ values."
                          monokai
                          zenburn)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Ricty"
+                               :size 19
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.3)
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
