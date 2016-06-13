@@ -51,3 +51,4 @@ recentf
 # ruby
 /.bundle
 /vendor/bundle
+/.vagrant
