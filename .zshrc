@@ -1,31 +1,9 @@
-export ZSH=/Users/pokotyamu/.oh-my-zsh
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
 ZSH_THEME="miloshadzic"
 
 plugins=(git ruby rails)
 
 source $ZSH/oh-my-zsh.sh
-
-export SCALA_HOME=/usr/local/share/scala-2.11.4
-export PATH=$PATH:$SCALA_HOME/bin
-export PATH=/usr/texbin:$PATH
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export EDITOR='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs '
-#nodebrew
-export PATH=/usr/local/bin/nodebrew/current/bin:$PATH
-
-PATH="$PATH:/usr/local/jruby/bin"
-
-#rbenv
-[[ -d ~/.rbenv  ]] && \
-    export PATH=${HOME}/.rbenv/bin:${PATH} && \
-      eval "$(rbenv init -)"
-
-export M3_HOME=/usr/local/apache-maven-3.3.3
-M3=$M3_HOME/bin
-export PATH=$M3:$PATH
+source ~/.zsh/all.zsh
 
 RPROMPT="%T" # 右側に時間表示
 setopt transient_rprompt # 右側まで入力がきたら時間表示を消す
@@ -68,11 +46,7 @@ esac
 #histroyに時間を付ける
 HIST_STAMPS="mm/dd/yyyy"
 
-source ~/.zsh/all.zsh
 
-export PATH="/usr/local/bin:$PATH"
-export ARCHFLAGS="-arch x86_64"
-export PGDATA="/usr/local/var/postgres"
 
 
 #direnv
