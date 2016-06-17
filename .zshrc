@@ -12,7 +12,7 @@ export PATH=$PATH:$SCALA_HOME/bin
 export PATH=/usr/texbin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export EDITOR='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw '
+export EDITOR='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs '
 #nodebrew
 export PATH=/usr/local/bin/nodebrew/current/bin:$PATH
 
@@ -69,7 +69,7 @@ esac
 HIST_STAMPS="mm/dd/yyyy"
 
 #alias
-alias emacs='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw '
+alias emacs='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs '
 alias rab='rabbit'
 alias sshkit='ssh -l o675022e remote-i.isc.kyutech.ac.jp'
 alias geeknote='/usr/local/bin/geeknote'
