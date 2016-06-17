@@ -17,3 +17,6 @@ export PATH=/usr/local/bin/nodebrew/current/bin:$PATH
 export PATH="/usr/local/bin:$PATH"
 export ARCHFLAGS="-arch x86_64"
 export PGDATA="/usr/local/var/postgres"
+
+#direnv
+eval "$(direnv hook zsh)"

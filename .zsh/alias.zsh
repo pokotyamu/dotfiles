@@ -21,3 +21,6 @@ alias gs='git status'
 alias gaa='git add -A'
 alias gau='git add -u'
 alias gl='git log --graph --oneline --decorate --date=short'
+
+#peco 用
+alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
