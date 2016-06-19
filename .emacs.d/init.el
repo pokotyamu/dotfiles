@@ -78,3 +78,13 @@
                     :weight 'bold)
 (set-face-attribute 'whitespace-empty nil
                     :background my/bg-color)
+
+;; Window 分割・移動を C-t で
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (if (>= (window-body-width) 270)
+        (split-window-horizontally-n 3)
+      (split-window-horizontally)))
+  (other-window 1))
+(global-set-key (kbd "C-t") 'other-window-or-split)
