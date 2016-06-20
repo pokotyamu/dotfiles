@@ -6,9 +6,7 @@ export EDITOR='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs '
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-
-# nodebrew
-export PATH=/usr/local/bin/nodebrew/current/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # rbenv
 [[ -d ~/.rbenv  ]] && \
