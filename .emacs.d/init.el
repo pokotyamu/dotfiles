@@ -132,6 +132,8 @@
 
 (ac-config-default)
 
+;magit
+(define-key global-map (kbd "M-g s") 'magit-status)
 (global-git-gutter-mode t)
 (setq git-gutter:added-sign "+")
 (setq git-gutter:deleted-sign-sign "-")
