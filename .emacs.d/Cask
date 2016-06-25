@@ -49,3 +49,4 @@
 (depends-on "robe")
 
 (depends-on "go-autocomplete")
+(depends-on "git-gutter")
