@@ -11,19 +11,18 @@
 (require 'helm-config)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (define-key global-map (kbd "M-x")     'helm-M-x)
-(define-key global-map (kbd "C-x C-f") 'helm-find-files)
+(define-key global-map (kbd "C-c C-f") 'helm-projectile)
 (define-key global-map (kbd "C-x C-r") 'helm-recentf)
 (define-key global-map (kbd "M-y")     'helm-show-kill-ring)
 (define-key global-map (kbd "C-c i")   'helm-imenu)
 (define-key global-map (kbd "C-x b")   'helm-buffers-list)
 (helm-mode 1)
+
 ;; TABで補完
 (define-key helm-read-file-map (kbd "<tab>") 'helm-execute-persistent-action)
 
-
 ;;ミニバッファでC-hをバックスペースに割り当て
 (define-key helm-read-file-map (kbd "C-h") 'delete-backward-char)
-
 
 ;;rubyのマジックコメント対策
 (setq ruby-insert-encoding-magic-comment nil)
