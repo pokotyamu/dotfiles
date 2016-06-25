@@ -17,6 +17,9 @@
 (define-key global-map (kbd "C-c i")   'helm-imenu)
 (define-key global-map (kbd "C-x b")   'helm-buffers-list)
 (helm-mode 1)
+;; TABで補完
+(define-key helm-read-file-map (kbd "<tab>") 'helm-execute-persistent-action)
+
 
 ;;ミニバッファでC-hをバックスペースに割り当て
 (define-key helm-read-file-map (kbd "C-h") 'delete-backward-char)
@@ -80,3 +83,19 @@
       (split-window-horizontally)))
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(custom-enabled-themes (quote (wheatgrass))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
