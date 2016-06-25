@@ -27,3 +27,4 @@
 (depends-on "yasnippet")
 
 (depends-on "helm")
+(depends-on "ag")
