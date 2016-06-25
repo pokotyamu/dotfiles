@@ -28,6 +28,10 @@
 
 (depends-on "helm")
 (depends-on "ag")
+(depends-on "auto-complete")
+(depends-on "fuzzy")
+(depends-on "popup")
+(depends-on "color-theme")
 
 ;; prog modes
 (depends-on "coffee-mode")
@@ -46,5 +50,7 @@
 (depends-on "ruby-block")
 (depends-on "ruby-electric")
 (depends-on "ruby-end")
+
+(depends-on "robe")
 
 (depends-on "go-autocomplete")
