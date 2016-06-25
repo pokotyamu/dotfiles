@@ -131,3 +131,11 @@
 (setq ruby-block-highlight-toggle t)
 
 (ac-config-default)
+
+(global-git-gutter-mode t)
+(setq git-gutter:added-sign "+")
+(setq git-gutter:deleted-sign-sign "-")
+(setq git-gutter:modified-sign "*") ;; 空白 2つ
+(set-face-foreground 'git-gutter:added  "red")
+(set-face-foreground 'git-gutter:deleted  "yellow")
+(set-face-background 'git-gutter:modified "magenta")
