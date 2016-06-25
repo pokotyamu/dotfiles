@@ -13,6 +13,7 @@
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "magit")
+(depends-on "magit-diff")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
 (depends-on "pallet")
@@ -34,13 +35,8 @@
 (depends-on "color-theme")
 
 ;; prog modes
-(depends-on "coffee-mode")
-(depends-on "go-mode")
-(depends-on "js2-mode")
 (depends-on "json-mode")
 (depends-on "less-css-mode")
-(depends-on "motion-mode")
-(depends-on "puppet-mode")
 (depends-on "rhtml-mode")
 (depends-on "ruby-mode")
 (depends-on "sass-mode")
