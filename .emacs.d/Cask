@@ -46,7 +46,7 @@
 (depends-on "ruby-block")
 (depends-on "ruby-electric")
 (depends-on "ruby-end")
-
+(depends-on "rspec-mode")
 (depends-on "robe")
 
 (depends-on "go-autocomplete")
