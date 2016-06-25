@@ -100,6 +100,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+; メニューバーを表示しない
+(menu-bar-mode -1)
+
 ;; ruby-mode
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files" t)
