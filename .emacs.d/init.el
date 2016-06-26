@@ -140,6 +140,14 @@
 (set-face-foreground 'git-gutter:added  "red")
 (set-face-foreground 'git-gutter:deleted  "yellow")
 (set-face-background 'git-gutter:modified "magenta")
+
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-modes 'ruby-mode)
+(add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
+(setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
+(setq ac-use-fuzzy t)          ;; 曖昧マッチ
+
 ;;; *.~ とかのバックアップファイルを作らない
 (setq make-backup-files nil)
 ;;; .#* とかのバックアップファイルを作らない
