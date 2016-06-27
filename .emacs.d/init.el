@@ -82,6 +82,7 @@
       (split-window-horizontally)))
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -140,3 +141,11 @@
 (set-face-foreground 'git-gutter:added  "red")
 (set-face-foreground 'git-gutter:deleted  "yellow")
 (set-face-background 'git-gutter:modified "magenta")
+
+;; C-Ret で矩形選択
+;; 詳しいキーバインド操作：http://dev.ariel-networks.com/articles/emacs/part5/
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
+
+;; globalなC-zを無効化
+(global-unset-key "\C-z")
