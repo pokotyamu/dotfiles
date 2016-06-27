@@ -12,10 +12,11 @@
 (global-set-key (kbd "C-c h") 'helm-mini)
 (define-key global-map (kbd "M-x")     'helm-M-x)
 (define-key global-map (kbd "C-c C-f") 'helm-projectile)
-(define-key global-map (kbd "C-x C-r") 'helm-recentf)
+(define-key global-map (kbd "C-c C-r") 'helm-recentf)
 (define-key global-map (kbd "M-y")     'helm-show-kill-ring)
 (define-key global-map (kbd "C-c i")   'helm-imenu)
-(define-key global-map (kbd "C-x b")   'helm-buffers-list)
+(define-key global-map (kbd "C-c b")   'helm-buffers-list)
+(define-key global-map (kbd "C-c C-g")   'helm-ag)
 (helm-mode 1)
 
 ;; TABで補完
@@ -82,6 +83,7 @@
       (split-window-horizontally)))
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -140,3 +142,11 @@
 (set-face-foreground 'git-gutter:added  "red")
 (set-face-foreground 'git-gutter:deleted  "yellow")
 (set-face-background 'git-gutter:modified "magenta")
+
+;; C-Ret で矩形選択
+;; 詳しいキーバインド操作：http://dev.ariel-networks.com/articles/emacs/part5/
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
+
+;; globalなC-zを無効化
+(global-unset-key "\C-z")
