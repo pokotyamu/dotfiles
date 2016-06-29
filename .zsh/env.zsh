@@ -18,3 +18,7 @@ export PGDATA="/usr/local/var/postgres"
 
 #direnv
 eval "$(direnv hook zsh)"
+
+#nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
