@@ -111,6 +111,13 @@
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode)) ;; shebangがrubyの場合、ruby-modeを開く
+
+;; flycheck
+(add-hook 'ruby-mode-hook
+	  '(lambda ()
+	     (setq flycheck-checker 'ruby-rubocop)
+	     (flycheck-mode 1)))
+
 ;; ruby-modeのインデントを改良する
 (setq ruby-deep-indent-paren-style nil)
 (defadvice ruby-indent-line (after unindent-closing-paren activate)
