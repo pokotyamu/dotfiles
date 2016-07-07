@@ -32,6 +32,7 @@
 .cache/
 *.autosave
 /dump.rdb
+/tmp/cache
 
 # emacs
 \#*\#
@@ -51,5 +52,6 @@ recentf
 # ruby
 /.bundle
 /vendor/bundle
+/vendor/bundler
 /.vagrant
 /bundle_bin
