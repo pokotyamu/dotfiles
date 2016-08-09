@@ -184,3 +184,7 @@
 (setq interprogram-paste-function 'copy-from-osx)
 
 (setq inhibit-startup-message t)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
