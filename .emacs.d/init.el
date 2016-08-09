@@ -31,6 +31,9 @@
 ;;行数
 (global-linum-mode t)
 
+;; スクロールバーを表示しない
+(scroll-bar-mode 0)
+
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
 			 trailing       ; 行末
