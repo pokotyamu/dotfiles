@@ -34,6 +34,9 @@
 ;; スクロールバーを表示しない
 (scroll-bar-mode 0)
 
+;; 起動時フルスクリーンにする
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
 			 trailing       ; 行末
