@@ -1,6 +1,6 @@
 #alias
-alias emacs='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
-alias e='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
+alias em='emacs'
+alias e='emacs'
 alias rab='rabbit'
 alias sshkit='ssh -l o675022e remote-i.isc.kyutech.ac.jp'
 alias geeknote='/usr/local/bin/geeknote'
