@@ -31,6 +31,12 @@
 ;;行数
 (global-linum-mode t)
 
+;; スクロールバーを表示しない
+(scroll-bar-mode 0)
+
+;; 起動時フルスクリーンにする
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
 			 trailing       ; 行末
@@ -182,3 +188,9 @@
 
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
+
+(setq inhibit-startup-message t)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))

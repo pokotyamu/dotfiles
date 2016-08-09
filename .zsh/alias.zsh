@@ -1,6 +1,6 @@
 #alias
-alias emacs='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw '
-alias e='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw '
+alias em='emacs'
+alias e='emacs'
 alias rab='rabbit'
 alias sshkit='ssh -l o675022e remote-i.isc.kyutech.ac.jp'
 alias geeknote='/usr/local/bin/geeknote'

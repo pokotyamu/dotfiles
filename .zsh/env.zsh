@@ -1,6 +1,6 @@
 export ZSH=/Users/pokotyamu/.oh-my-zsh
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export EDITOR='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw'
+export EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
 
 # go lang
 export GOPATH=$HOME/go
