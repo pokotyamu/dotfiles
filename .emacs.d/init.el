@@ -168,11 +168,6 @@
 ;;; .#* とかのバックアップファイルを作らない
 (setq auto-save-default nil)
 
-;; C-Ret で矩形選択
-;; 詳しいキーバインド操作：http://dev.ariel-networks.com/articles/emacs/part5/
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
-
 ;; globalなC-zを無効化
 (global-unset-key "\C-z")
 
@@ -199,7 +194,7 @@
 (let* ((size 15)
        (asciifont "Ricty")
        (jpfont "Ricty")
-       (h (* size 10))
+       (h (* size 12))
        (fontspec (font-spec :family asciifont))
        (jp-fontspec (font-spec :family jpfont)))
   (set-face-attribute 'default nil :family asciifont :height h)
