@@ -119,6 +119,8 @@
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode)) ;; shebangがrubyの場合、ruby-modeを開く
 
 ;; flycheck
+(global-flycheck-mode)
+
 (add-hook 'ruby-mode-hook
 	  '(lambda ()
 	     (setq flycheck-checker 'ruby-rubocop)
