@@ -205,3 +205,6 @@
   (set-fontset-font nil 'katakana-jisx0201 jp-fontspec)
   (set-fontset-font nil '(#x0080 . #x024F) fontspec)
   (set-fontset-font nil '(#x0370 . #x03FF) fontspec))
+
+;; 改行で終わる
+(setq require-final-newline nil)
