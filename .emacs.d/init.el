@@ -54,6 +54,9 @@
 (setq hl-line-face 'hlline-face)
 (global-hl-line-mode)
 
+;; (yes/no) を (y/n)に
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
 			 trailing       ; 行末
