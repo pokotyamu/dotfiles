@@ -37,6 +37,9 @@
 ;; 起動時フルスクリーンにする
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
+;; 時刻表示
+(display-time)
+
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
 			 trailing       ; 行末
