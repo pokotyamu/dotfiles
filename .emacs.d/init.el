@@ -37,6 +37,26 @@
 ;; 起動時フルスクリーンにする
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
+;; 時刻表示
+(display-time)
+
+;; 現在行を目立たせる
+(defface hlline-face
+  '((((class color)
+      (background dark))
+     (:background "dark slate gray"))
+    (((class color)
+      (background light))
+     (:background "#CC0066"))
+    (t
+     ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
+(global-hl-line-mode)
+
+;; (yes/no) を (y/n)に
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
 			 trailing       ; 行末
@@ -119,6 +139,8 @@
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode)) ;; shebangがrubyの場合、ruby-modeを開く
 
 ;; flycheck
+(global-flycheck-mode)
+
 (add-hook 'ruby-mode-hook
 	  '(lambda ()
 	     (setq flycheck-checker 'ruby-rubocop)
@@ -168,11 +190,6 @@
 ;;; .#* とかのバックアップファイルを作らない
 (setq auto-save-default nil)
 
-;; C-Ret で矩形選択
-;; 詳しいキーバインド操作：http://dev.ariel-networks.com/articles/emacs/part5/
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
-
 ;; globalなC-zを無効化
 (global-unset-key "\C-z")
 
@@ -199,7 +216,7 @@
 (let* ((size 15)
        (asciifont "Ricty")
        (jpfont "Ricty")
-       (h (* size 10))
+       (h (* size 12))
        (fontspec (font-spec :family asciifont))
        (jp-fontspec (font-spec :family jpfont)))
   (set-face-attribute 'default nil :family asciifont :height h)
@@ -208,3 +225,6 @@
   (set-fontset-font nil 'katakana-jisx0201 jp-fontspec)
   (set-fontset-font nil '(#x0080 . #x024F) fontspec)
   (set-fontset-font nil '(#x0370 . #x03FF) fontspec))
+
+;; 改行で終わる
+(setq require-final-newline nil)

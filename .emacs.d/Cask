@@ -42,6 +42,8 @@
 (depends-on "ruby-mode")
 (depends-on "sass-mode")
 (depends-on "slim-mode")
+(depends-on "markdown-mode")
+(depends-on "yaml-mode")
 
 (depends-on "rubocop")
 (depends-on "ruby-block")
