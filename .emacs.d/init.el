@@ -213,10 +213,10 @@
   (server-start))
 
 ;; Fonts
-(let* ((size 15)
+(let* ((size 13)
        (asciifont "Ricty")
        (jpfont "Ricty")
-       (h (* size 12))
+       (h (* size 11))
        (fontspec (font-spec :family asciifont))
        (jp-fontspec (font-spec :family jpfont)))
   (set-face-attribute 'default nil :family asciifont :height h)
