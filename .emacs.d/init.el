@@ -228,3 +228,15 @@
 
 ;; 改行で終わる
 (setq require-final-newline nil)
+
+;; リージョン選択範囲を広げる
+(require 'expand-region)
+(global-set-key (kbd "C-.") 'er/expand-region)
+
+;; 一括でクォートで囲む
+(require 'region-bindings-mode)
+(region-bindings-mode-enable)
+(define-key region-bindings-mode-map (kbd "M-'") 'region-to-single-quote)
+(define-key region-bindings-mode-map (kbd "M-\"") 'region-to-double-quote)
+(define-key region-bindings-mode-map (kbd "M-9") 'region-to-bracket)
+(define-key region-bindings-mode-map (kbd "M-[") 'region-to-square-bracket)

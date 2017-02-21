@@ -57,3 +57,7 @@
 (depends-on "git-gutter-fringe")
 
 (depends-on "flycheck")
+
+(depends-on "highlight-symbol")
+(depends-on "expand-region")
+(depends-on "region-bindings-mode")
