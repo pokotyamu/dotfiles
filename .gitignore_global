@@ -55,3 +55,6 @@ recentf
 /vendor/bundler
 /.vagrant
 /bundle_bin
+
+# node
+node_modules/

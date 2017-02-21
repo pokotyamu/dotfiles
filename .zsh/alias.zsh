@@ -25,3 +25,5 @@ alias gl='git log --graph --oneline --decorate --date=short'
 
 #peco 用
 alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
+
+alias brew="env PATH=${PATH/\/Users\/pokotyamu\/\.pyenv\/shims:/} brew"
