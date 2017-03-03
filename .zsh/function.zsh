@@ -31,7 +31,7 @@ bindkey '^]' peco-src
 # emacs (GUI)
 function emacs () {
    EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-   EMACS='/Applications/Emacs.app'
+   EMACS='/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs'
 
    [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
@@ -45,7 +45,7 @@ function emacs () {
 # emacs -nw
 function emacsnw () {
   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-  EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
+  EMACS='/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs'
 
   if ! pgrep Emacs > /dev/null; then
     $EMACS --daemon

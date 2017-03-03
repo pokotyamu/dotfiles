@@ -60,4 +60,3 @@
 
 (depends-on "highlight-symbol")
 (depends-on "expand-region")
-(depends-on "region-bindings-mode")

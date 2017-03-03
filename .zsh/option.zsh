@@ -1,4 +1,4 @@
-ZSH_THEME="miloshadzic"
+ZSH_THEME="material-dark"
 source $ZSH/oh-my-zsh.sh
 
 RPROMPT="%T" # 右側に時間表示

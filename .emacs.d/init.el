@@ -1,4 +1,11 @@
 ;; Macの場合
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cask)
 
 (cask-initialize)
@@ -100,12 +107,29 @@
 (set-face-attribute 'whitespace-empty nil
 		    :background my/bg-color)
 
+;; Window 分割を画面サイズに従って計算する
+(defun split-window-vertically-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-vertically)
+    (progn
+      (split-window-vertically
+       (- (window-height) (/ (window-height) num_wins)))
+      (split-window-vertically-n (- num_wins 1)))))
+(defun split-window-horizontally-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-horizontally)
+    (progn
+      (split-window-horizontally
+       (- (window-width) (/ (window-width) num_wins)))
+      (split-window-horizontally-n (- num_wins 1)))))
 ;; Window 分割・移動を C-t で
 (defun other-window-or-split ()
   (interactive)
   (when (one-window-p)
     (if (>= (window-body-width) 270)
-	(split-window-horizontally-n 3)
+        (split-window-horizontally-n 2)
       (split-window-horizontally)))
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
