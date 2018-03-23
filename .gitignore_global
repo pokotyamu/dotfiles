@@ -34,6 +34,9 @@
 /dump.rdb
 /tmp/cache
 
+# rubymine
+/.idea/
+
 # emacs
 \#*\#
 auto-save-list
@@ -58,3 +61,12 @@ recentf
 
 # node
 node_modules/
+
+# vscode
+/.vscode
+
+# pyenv
+.pyenv
+
+# terraform
+terraform.tfstate.backup

@@ -28,41 +28,10 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-# emacs (GUI)
-function emacs () {
-   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-   EMACS='/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs'
-
-   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
-
-   if pgrep Emacs > /dev/null; then
-     $EMACS_CLIENT -n $_ARGV
-   else
-     open -a $EMACS $_ARGV
-   fi
-}
-
-# emacs -nw
-function emacsnw () {
-  EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-  EMACS='/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs'
-
-  if ! pgrep Emacs > /dev/null; then
-    $EMACS --daemon
+function estart() {
+  if ! emacsclient -e 0 > /dev/null 2>&1; then
+    cd > /dev/null 2>&1
+    emacs --daemon
+    cd - > /dev/null 2>&1
   fi
-
-  [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
-
-  $EMACS_CLIENT -nw -q $_ARGV
-}
-alias emacsn='emacsnw'
-alias nemacs='emacsnw'
-
-function ekill () {
-  pkill Emacs
-}
-
-function gemacs () {
-  EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-  $EMACS_CLIENT -c -q
 }
