@@ -1,6 +1,6 @@
 export ZSH=/Users/pokotyamu/.oh-my-zsh
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+export EDITOR="emacs"
 
 # Python
 export PYENV_ROOT=${HOME}/.pyenv
@@ -21,6 +21,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/bin:$PATH"
 export ARCHFLAGS="-arch x86_64"
 export PGDATA="/usr/local/var/postgres"
+export LC_CTYPE=en_US.UTF-8
 
 #direnv
 eval "$(direnv hook zsh)"
@@ -28,3 +29,6 @@ eval "$(direnv hook zsh)"
 #nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+#pyenv
+eval "$(pyenv init -)"

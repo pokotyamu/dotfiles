@@ -34,6 +34,7 @@
 (depends-on "fuzzy")
 (depends-on "popup")
 (depends-on "color-theme")
+(depends-on "motion-mode")
 
 ;; prog modes
 (depends-on "json-mode")
@@ -46,7 +47,6 @@
 (depends-on "yaml-mode")
 
 (depends-on "rubocop")
-(depends-on "ruby-block")
 (depends-on "ruby-electric")
 (depends-on "ruby-end")
 (depends-on "rspec-mode")
@@ -60,4 +60,3 @@
 
 (depends-on "highlight-symbol")
 (depends-on "expand-region")
-(depends-on "region-bindings-mode")

@@ -1,4 +1,12 @@
 ;; Macの場合
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+;;(exec-path-from-shell-initialize)
+
 (require 'cask)
 
 (cask-initialize)
@@ -100,12 +108,29 @@
 (set-face-attribute 'whitespace-empty nil
 		    :background my/bg-color)
 
+;; Window 分割を画面サイズに従って計算する
+(defun split-window-vertically-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-vertically)
+    (progn
+      (split-window-vertically
+       (- (window-height) (/ (window-height) num_wins)))
+      (split-window-vertically-n (- num_wins 1)))))
+(defun split-window-horizontally-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-horizontally)
+    (progn
+      (split-window-horizontally
+       (- (window-width) (/ (window-width) num_wins)))
+      (split-window-horizontally-n (- num_wins 1)))))
 ;; Window 分割・移動を C-t で
 (defun other-window-or-split ()
   (interactive)
   (when (one-window-p)
     (if (>= (window-body-width) 270)
-	(split-window-horizontally-n 3)
+        (split-window-horizontally-n 2)
       (split-window-horizontally)))
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
@@ -119,7 +144,10 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (wheatgrass))))
+ '(custom-enabled-themes (quote (wheatgrass)))
+ '(package-selected-packages
+   (quote
+    (clj-refactor mwim sequential-command flycheck dockerfile-mode company-jedi yasnippet yaml-mode web-mode use-package smex smartparens slim-mode sass-mode ruby-block rspec-mode robe rhtml-mode prodigy popwin pallet nyan-mode multiple-cursors markdown-mode magit less-css-mode json-mode idle-highlight-mode htmlize highlight-symbol helm-projectile helm-ag go-autocomplete git-gutter-fringe fuzzy flycheck-cask expand-region exec-path-from-shell drag-stuff company-irony color-theme ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -139,12 +167,9 @@
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode)) ;; shebangがrubyの場合、ruby-modeを開く
 
 ;; flycheck
-(global-flycheck-mode)
-
-(add-hook 'ruby-mode-hook
-	  '(lambda ()
-	     (setq flycheck-checker 'ruby-rubocop)
-	     (flycheck-mode 1)))
+;(autoload 'flycheck-mode "flycheck")
+;(add-hook 'ruby-mode-hook 'flycheck-mode)
+;(setq flycheck-check-syntax-automatically '(idle-change mode-enabled new-line save))
 
 ;; ruby-modeのインデントを改良する
 (setq ruby-deep-indent-paren-style nil)
@@ -162,11 +187,6 @@
     (when indent
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
-(require 'ruby-block)
-(ruby-block-mode t)
-(setq ruby-block-highlight-toggle t)
-
-(ac-config-default)
 
 ;magit
 (define-key global-map (kbd "M-g s") 'magit-status)
@@ -178,12 +198,46 @@
 (set-face-foreground 'git-gutter:deleted  "yellow")
 (set-face-background 'git-gutter:modified "magenta")
 
-(require 'auto-complete-config)
-(ac-config-default)
-(add-to-list 'ac-modes 'ruby-mode)
-(add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
-(setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
-(setq ac-use-fuzzy t)          ;; 曖昧マッチ
+;; rbenvパス設定
+(setenv "PATH" (concat (expand-file-name "/usr/local/var/rbenv/shims/ruby") (getenv "PATH")))
+
+(require 'rbenv)
+(setq rbenv-installation-dir "/usr/local/var/rbenv")
+
+
+;; do endなどの補完
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook '(lambda ()
+          (ruby-electric-mode t)))
+(setq ruby-electric-expand-delimiters-list nil)
+
+;; 補完機能
+;; robe-modeの有効化とcompanyとの連携
+(add-hook 'ruby-mode-hook 'robe-mode)
+(autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
+(add-hook 'ruby-mode-hook (lambda()
+      (company-mode)
+      (setq company-auto-expand t)
+      (setq company-transformers '(company-sort-by-backend-importance)) ;; ソート順
+      (setq company-idle-delay 0) ; 遅延なしにすぐ表示
+      (setq company-minimum-prefix-length 1) ; 何文字打つと補完動作を行うか設定
+      (setq company-selection-wrap-around t) ; 候補の最後の次は先頭に戻る
+      (setq completion-ignore-case t)
+      (setq company-dabbrev-downcase nil)
+      (global-set-key (kbd "C-M-i") 'company-complete)
+      ;; C-n, C-pで補完候補を次/前の候補を選択
+      (define-key company-active-map (kbd "C-n") 'company-select-next)
+      (define-key company-active-map (kbd "C-p") 'company-select-previous)
+      (define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
+      (define-key company-active-map [tab] 'company-complete-selection) ;; TABで候補を設定
+      (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete) ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
+      ))
+
+;; rubocop mode も合わせて起動
+(add-hook 'ruby-mode-hook #'rubocop-mode)
 
 ;;; *.~ とかのバックアップファイルを作らない
 (setq make-backup-files nil)
@@ -233,10 +287,21 @@
 (require 'expand-region)
 (global-set-key (kbd "C-.") 'er/expand-region)
 
-;; 一括でクォートで囲む
-(require 'region-bindings-mode)
-(region-bindings-mode-enable)
-(define-key region-bindings-mode-map (kbd "M-'") 'region-to-single-quote)
-(define-key region-bindings-mode-map (kbd "M-\"") 'region-to-double-quote)
-(define-key region-bindings-mode-map (kbd "M-9") 'region-to-bracket)
-(define-key region-bindings-mode-map (kbd "M-[") 'region-to-square-bracket)
+;; ;; 一括でクォートで囲む
+;; (require 'region-bindings-mode)
+;; (region-bindings-mode-enable)
+;; (define-key region-bindings-mode-map (kbd "M-'") 'region-to-single-quote)
+;; (define-key region-bindings-mode-map (kbd "M-\"") 'region-to-double-quote)
+;; (define-key region-bindings-mode-map (kbd "M-9") 'region-to-bracket)
+;; (define-key region-bindings-mode-map (kbd "M-[") 'region-to-square-bracket)
+
+;; docker
+(autoload 'dockerfile-mode "dockerfile-mode" nil t)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;; 行頭行後の拡張
+(global-set-key (kbd "C-a") 'mwim-beginning-of-code-or-line)
+(global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
+
+;; 日本語ちらつき防止
+(setq redisplay-dont-pause nil)

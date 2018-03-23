@@ -1,6 +1,6 @@
 #alias
-alias em='emacs'
-alias e='emacs'
+alias em='() { command emacs $@ &}'
+alias e='() { command emacs $@ &}'
 alias rab='rabbit'
 alias sshkit='ssh -l o675022e remote-i.isc.kyutech.ac.jp'
 alias geeknote='/usr/local/bin/geeknote'
